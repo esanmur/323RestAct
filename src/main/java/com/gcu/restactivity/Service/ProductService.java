@@ -36,8 +36,9 @@ public class ProductService {
         if (existingProduct.isPresent()){
             Product product = existingProduct.get();
             product.setName(updatedProduct.getName());
-            product.setPrice(updatedProduct.getPrice());
-            product.setQuantity(updatedProduct.getQuantity());
+            product.setDescription(updatedProduct.getDescription());
+            product.setUrgent(updatedProduct.getUrgent());
+            product.setImportant(updatedProduct.getImportant());
             return productRepository.save(product);
         } else {
             throw new RuntimeException("Product not found");

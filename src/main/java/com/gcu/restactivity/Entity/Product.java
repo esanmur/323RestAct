@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity 
-@Table(name = "product")
+@Table(name = "activity")
 public class Product {
     
     @Id
@@ -19,10 +19,13 @@ public class Product {
     private String name;
 
     @Column(nullable = false)
-    private double price;
+    private String description;
 
     @Column(nullable = false)
-    private int quantity;
+    private boolean urgent;
+
+    @Column(nullable = false)
+    private boolean important;
 
 
     //Setters
@@ -34,21 +37,29 @@ public class Product {
         this.name = name;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setUrgent(boolean urgent) {
+        this.urgent = urgent;
+    }
+
+    public void setImportant(boolean important) {
+        this.important = important;
     }
 
     //Getters
-    public int getQuantity() {
-        return quantity;
+    public boolean getImportant() {
+        return important;
     }
 
-    public double getPrice() {
-        return price;
+    public boolean getUrgent() {
+        return urgent;
+    }
+
+    public String getDescription(){
+        return description;
     }
 
     public String getName() {
